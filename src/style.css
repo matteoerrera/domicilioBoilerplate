@@ -157,12 +157,12 @@ input.search {
    background-size: contain;
    background-position: center;
    margin-right: 4px;
-   transform: rotate(0deg);
+   transform: rotate(180deg);
    transition: transform 200ms ease;
 }
 
 .categories .list_item.open .switcher:before {
-   transform: rotate(180deg);
+   transform: rotate(0deg);
 }
 
 .footer {
@@ -211,6 +211,20 @@ input.search {
 
 .mobile-buttons {
  display: none;
+}
+
+.main-description {
+   font-family: 'Open Sans', 'sans-serif';
+   font-size: 18px;
+   font-weight: normal;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: 1.56;
+   letter-spacing: normal;
+   text-align: center;
+   color: #353f43;
+   margin: 24px auto 0;
+   max-width: 588px;
 }
 
 
