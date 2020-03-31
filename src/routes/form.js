@@ -18,7 +18,7 @@ export default function Form() {
             <h1>Un aiuto alla nostra città</h1>
             <div className="text">
                <p>
-                  Siamo un gruppo di ragazzi che vivono a Fiumicino e che hanno a cuore la propria città. Partendo dall’idea di <a href='http://tomma5o.com/' target='_blank'>Tomma5o</a>, un ragazzo di Ferrara, abbiamo voluto realizzare fiumicinoadomicilio.it, un sito web che offre alle attività produttive ancora aperte del nostro Comune di poter continuare a lavorare, offrendo prodotti e servizi a tutti noi che dobbiamo restare a casa. In questo momento particolare, in cui il cambio di scenario in corso sta costringendo tutti noi a cambiare le nostre abitudini, abbiamo voluto dare il nostro piccolo contributo a supporto della comunità.
+                  Siamo un gruppo di ragazzi che vivono a Fiumicino e che hanno a cuore la propria città. Partendo dall’idea di <a href='http://tomma5o.com/' target='_blank'>Tommaso Poletti </a>, un ragazzo di Ferrara, abbiamo voluto realizzare fiumicinoadomicilio.it, un sito web che offre alle attività produttive ancora aperte del nostro Comune di poter continuare a lavorare, offrendo prodotti e servizi a tutti noi che dobbiamo restare a casa. In questo momento particolare, in cui il cambio di scenario in corso sta costringendo tutti noi a cambiare le nostre abitudini, abbiamo voluto dare il nostro piccolo contributo a supporto della comunità.
                </p>
 
                <p>
