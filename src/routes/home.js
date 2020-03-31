@@ -71,6 +71,7 @@ export default class Home extends Component {
                   href="https://bit.ly/fiumicinoadomicilio">Aggiungi un'attività</a>
             </div>
             <img alt={"Fiumicino a Domicilio"} className={'logo'} src="assets/logo.svg"/>
+            <p class="main-description">Registrazione gratuita per sempre.<br/>Aiutiamoci in questo momento di difficoltà :)</p>
 					<input
 						class="search"
 						type="text"
