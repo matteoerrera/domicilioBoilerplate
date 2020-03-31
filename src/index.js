@@ -66,17 +66,12 @@ export default class App extends Component {
 			});
 	}
 
-	createHistory() {
-      if (typeof window !== "undefined"){
-         createHashHistory();
-      }
-	}
 
 	render(props, { isHomepage, results }) {
 		return (
 			<div id="app" class="px-5 max-w-screen-md mx-auto">
             <div>
-				<Router history={this.createHistory()} onChange={this.handleRoute}>
+				<Router history={createHashHistory()} onChange={this.handleRoute}>
 					<Home path="/" results={results} />
 					<Form path="/iniziativa" />
 				</Router>
