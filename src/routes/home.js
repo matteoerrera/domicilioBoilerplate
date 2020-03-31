@@ -20,39 +20,14 @@ export default class Home extends Component {
 
       let items = results;
 
-     let filtered_keys = Object.keys(items).filter(key => {
-        let cat = key.toUpperCase();
-        if(filter) {
-           filter = filter.toUpperCase();
-        }
-        return cat.includes(filter);
-
-     });
-
-
-  /*    const filtered = Object.keys(items)
-         .filter(key => filtered_keys.includes(key))
-         .reduce((obj, key) => {
-            obj[key] = items[key];
-            return obj;
-         }, {});
-*/
-
-
-
-/*  const filtered =  Object.keys(items).map(key => {
-     return {
-        [key]:{
-           data: items[key]
-        }
-     }
-  })*/
-
       let toret = {};
 
       Object.keys(items).forEach(key => {
          toret[key] = {data: items[key].filter(item => {
-               return item.name.toUpperCase().includes(filter.toUpperCase()) && item.status === 'ok';
+               return (
+                  item.name.toUpperCase().includes(filter.toUpperCase()) ||
+                     item.cat.toUpperCase().includes(filter.toUpperCase())
+               ) && item.status === 'ok';
             })}
       });
 
