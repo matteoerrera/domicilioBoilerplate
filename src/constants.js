@@ -1,3 +1,3 @@
 export default Object.freeze({
-   VERSION: "0.1.0"
+   VERSION: process.env.PREACT_APP_VERSION
 });
