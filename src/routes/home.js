@@ -2,7 +2,7 @@ import { Component, Fragment } from 'preact';
 
 import { ListCategory } from '../components/listCategory';
 import {Link} from "preact-router/match";
-
+import Constants from "../constants";
 
 export default class Home extends Component {
 	state = {
@@ -81,6 +81,9 @@ export default class Home extends Component {
                   idea di <a href='http://tomma5o.com/' target='_blank'>Tomma5o</a></p>
                <p><a href="https://www.iubenda.com/privacy-policy/83882923" className="iubenda-white iubenda-embed"
                      title="Privacy Policy ">Privacy Policy</a>
+               </p>
+               <p style="opacity: 0.2; margin-top: 15px;">
+                  v{Constants.VERSION}
                </p>
             </div>
 
