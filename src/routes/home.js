@@ -17,22 +17,40 @@ export default class Home extends Component {
 
 	filteredCategories(filter) {
       const { results } = this.props;
-
-      let items = results;
-
-      let toret = {};
-
-      Object.keys(items).forEach(key => {
-         toret[key] = {data: items[key].filter(item => {
-               return (
-                  item.name.toUpperCase().includes(filter.toUpperCase()) ||
-                     item.cat.toUpperCase().includes(filter.toUpperCase())
-               ) && item.status === 'ok';
-            })}
+      let filtered_results = results.filter(item => {
+         console.log(item.name, item.category, item.status);
+         return (
+            item.name.toUpperCase().includes(filter.toUpperCase()) ||
+            item.category.toUpperCase().includes(filter.toUpperCase())
+         ) && item.status;
       });
 
 
-      return toret;
+      let grouped_results = filtered_results.reduce(function(results, item) {
+         (results[item.category] = results[item.category] || []).push(item);
+         return results;
+      }, {});
+
+      console.log(grouped_results);
+
+
+      /* let items = results;
+
+       let toret = {};
+
+       Object.keys(items).forEach(key => {
+          toret[key] = {data: items[key].filter(item => {
+                return (
+                   item.name.toUpperCase().includes(filter.toUpperCase()) ||
+                      item.cat.toUpperCase().includes(filter.toUpperCase())
+                ) && item.status === 'ok';
+             })}
+       });
+
+ */
+
+
+      return grouped_results;
 	}
 
 	render(props, { filter, isHomepage }) {
@@ -63,7 +81,7 @@ export default class Home extends Component {
                <div class="categories">
 					{
 						Object.keys(stores) && Object.keys(stores)
-							.filter(key => stores[key].data.length)
+							.filter(key => stores[key].length)
 							.map(key => (
 								<ListCategory
 									name={key}
