@@ -42,7 +42,7 @@ export default class Home extends Component {
             <div class="mobile-buttons">
                <Link href='/iniziativa'><img src="assets/icons/info.svg" class="info"/></Link>
                <a className="btn btn-blue" target="_blank" rel='noopener'
-                  href="https://bit.ly/fiumicinoadomicilio">Aggiungi un'attività</a>
+                  href="https://bit.ly/fiumicinodomicilio">Aggiungi un'attività</a>
             </div>
             <img alt={"Fiumicino a Domicilio"} className={'logo'} src="assets/logo.svg"/>
             <p class="main-description">Registrazione gratuita per sempre.<br/>Aiutiamoci in questo momento di difficoltà :)</p>
@@ -56,7 +56,7 @@ export default class Home extends Component {
                <Link class="btn btn-gray"
                      href="/iniziativa">A proposito dell'iniziativa</Link>
                <a class="btn btn-blue" target="_blank" rel='noopener'
-                     href="https://bit.ly/fiumicinoadomicilio">Aggiungi un'attività</a>
+                     href="https://bit.ly/fiumicinodomicilio">Aggiungi un'attività</a>
             </nav>
 				<div class="relative mb-10 font-sans text-md text-gray-800">
                <div class="categories">
