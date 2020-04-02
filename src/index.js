@@ -38,33 +38,88 @@ export default class App extends Component {
             }, {});
             delete items[1];
 
-            let parsed_items = Object.keys(items).map(key => {
-               return {
-                  'cat': items[key][0]?items[key][0].content.$t:'',
-                  'name': items[key][1]?items[key][1].content.$t:'',
-                  'address': items[key][2]?items[key][2].content.$t:'',
-                  'website': items[key][3]?items[key][3].content.$t:'',
-                  'phone': items[key][4]?items[key][4].content.$t:'',
-                  'description': items[key][5]?items[key][5].content.$t:'',
-                  'email': items[key][6]?items[key][6].content.$t:'',
-                  'status': items[key][11]?items[key][11].content.$t:'',
+            let parsed_items = [];
+
+            Object.keys(items).forEach(row => {
+               let parsed_item = items[row].map(cell => {
+                  return {
+                     col: cell.gs$cell.col,
+                     content: cell.content.$t,
+                  }
+               });
+
+               let result = {};
+               for (let i = 0; i < parsed_item.length; i++) {
+                  result[parsed_item[i].col] = parsed_item[i].content;
                }
+
+
+               parsed_items.push(result);
             });
 
 
-           let grouped_items = parsed_items.reduce(function(results, item) {
-               (results[item.cat] = results[item.cat] || []).push(item);
-               return results;
-            }, {});
+            let activities = this.parseActivity(parsed_items);
 
 
 				this.setState({
-					results: grouped_items,
+					results: activities,
 					resultBkp: json
 				});
 
 			});
 	}
+
+	parseActivity(data) {
+      return data.map(row => {
+         let activity = {
+            category: this.getRowValue(row,1),
+            name: this.getRowValue(row,2),
+            location: this.getRowValue(row,3),
+            address: this.getRowValue(row,4),
+            phone: this.getRowValue(row,5),
+            email: this.getRowValue(row,6),
+            description: this.getRowValue(row,7),
+            website: this.getRowValue(row,8),
+            facebook: this.getRowValue(row,9),
+            instagram: this.getRowValue(row,10),
+            open: this.getRowValue(row,11, 'bool'),
+            opening_days: this.getRowValue(row,12, 'array'),
+            opening_hours: this.getRowValue(row,13),
+            delivery: {
+               enabled: this.getRowValue(row, 14, 'bool'),
+               location: this.getRowValue(row, 15),
+               hours: this.getRowValue(row, 16),
+               shipment_price: this.getRowValue(row, 17),
+               minimum_order: this.getRowValue(row, 18),
+               payment_method: this.getRowValue(row, 19),
+               booking_preference: this.getRowValue(row, 22),
+            },
+            tag: this.getRowValue(row, 20, 'array'),
+            picture: this.getRowValue(row, 23),
+            status: this.getRowValue(row, 26) === 'OK',
+         };
+
+         return activity;
+      });
+   }
+
+
+   getRowValue(row, id, output) {
+	   if(row[id]) {
+	      let value = row[id];
+	      switch (output) {
+            case 'bool':
+               return value.toLowerCase() === 'true';
+            case 'array':
+               return value.split(",");
+            default:
+               return value;
+         }
+      } else {
+	      return null;
+      }
+
+   }
 
 
 	render(props, { isHomepage, results }) {
