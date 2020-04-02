@@ -18,7 +18,6 @@ export default class Home extends Component {
 	filteredCategories(filter) {
       const { results } = this.props;
       let filtered_results = results.filter(item => {
-         console.log(item.name, item.category, item.status);
          return (
             item.name.toUpperCase().includes(filter.toUpperCase()) ||
             item.category.toUpperCase().includes(filter.toUpperCase())
@@ -30,24 +29,6 @@ export default class Home extends Component {
          (results[item.category] = results[item.category] || []).push(item);
          return results;
       }, {});
-
-      console.log(grouped_results);
-
-
-      /* let items = results;
-
-       let toret = {};
-
-       Object.keys(items).forEach(key => {
-          toret[key] = {data: items[key].filter(item => {
-                return (
-                   item.name.toUpperCase().includes(filter.toUpperCase()) ||
-                      item.cat.toUpperCase().includes(filter.toUpperCase())
-                ) && item.status === 'ok';
-             })}
-       });
-
- */
 
 
       return grouped_results;

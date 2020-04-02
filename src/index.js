@@ -70,7 +70,6 @@ export default class App extends Component {
 	}
 
 	parseActivity(data) {
-	   console.log(data);
       return data.map(row => {
          let activity = {
             category: this.getRowValue(row,1),
