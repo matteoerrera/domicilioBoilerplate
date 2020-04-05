@@ -7,13 +7,13 @@ export default function Form() {
          <div className="mobile-buttons">
             <Link href='/'><img src="assets/icons/back.svg" className="info"/></Link>
             <a className="btn btn-blue" target="_blank" rel='noopener'
-               href="https://bit.ly/fiumicinoadomicilio">Aggiungi un'attività</a>
+               href="https://bit.ly/fiumicinodomicilio">Aggiungi un'attività</a>
          </div>
          <nav className="buttons flex justify-center md:justify-center items-center">
             <Link class="btn btn-gray"
                   href="/">Torna alla ricerca</Link>
             <a className="btn btn-blue" target="_blank" rel='noopener'
-               href="https://bit.ly/fiumicinoadomicilio">Aggiungi un'attività</a>
+               href="https://bit.ly/fiumicinodomicilio">Aggiungi un'attività</a>
          </nav>
             <h1>Un aiuto alla nostra città</h1>
             <div className="text">
